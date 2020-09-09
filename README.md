@@ -13,7 +13,7 @@ Things you may want to cover:
 |:----|:----|:----|:----|
 |ニックネーム|nickname|string|null false|
 |メールアドレス|email|string|null false,uniqueness: true|
-|パスワード|password|string|null false|
+|パスワード|encrypted_password|string|null false|
 |苗字|family_name|string|null false|
 |名前|first_name|string|null false|
 苗字（かな）| family_name_kana    | string     | null: false      |
