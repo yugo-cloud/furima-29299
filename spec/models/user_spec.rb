@@ -144,7 +144,7 @@ describe User do
       @user.valid?
       expect(@user.errors.full_messages).to include("First name kana is Full-width characters")
       it "@が含まれていない場合登録出来ない" do
-      @user.email = nil
+      @user.email = aaabbb
       @user.valid?
       expect(@user.errors.full_messages).to include("Email can't inclede @", "Email is invalid")
         
