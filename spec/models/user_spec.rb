@@ -1,9 +1,3 @@
-# require 'rails_helper'
-
-# RSpec.describe User, type: :model do
-#   pending "add some examples to (or delete) #{__FILE__}"
-# end
-
 require 'rails_helper'
 
 describe User do
@@ -149,6 +143,11 @@ describe User do
       @user.first_name_kana = "rikutarou"
       @user.valid?
       expect(@user.errors.full_messages).to include("First name kana is Full-width characters")
+      it "@が含まれていない場合登録出来ない" do
+      @user.email = nil
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Email can't inclede @", "Email is invalid")
+        
       end
     end
   end
