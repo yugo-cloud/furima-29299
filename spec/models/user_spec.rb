@@ -8,7 +8,7 @@ describe User do
   describe "ユーザー新規登録" do
     context "新規登録がうまくいくとき" do
 
-      it "nickname, family_name, first_name, family_name_kana, first_name_kana, birth_day, password, password_confirmation, emailが存在すれば登録できること" do
+      it "nickname, family_name, first_name, family_name_kana, first_name_kana, date, password, password_confirmation, emailが存在すれば登録できること" do
       expect(@user).to be_valid
       end
       it "passwordが6文字以上であれば登録できること" do
@@ -79,7 +79,7 @@ describe User do
       it "birth_dayが空では登録できないこと" do
       @user.birth_day = nil
       @user.valid?
-      expect(@user.errors.full_messages).to include("Birth day can't be blank")
+      expect(@user.errors.full_messages).to include("birth_day can't be blank")
       end
       it "passwordが空では登録できないこと" do
       @user.password = nil
@@ -139,7 +139,7 @@ describe User do
       @user.valid?
       expect(@user.errors.full_messages).to include("First name kana is Full-width characters")
       end
-      it "family_name_kanaがカタカナでない場合は登録できないこと" do
+      it "first_name_kanaがカタカナでない場合は登録できないこと" do
       @user.first_name_kana = "rikutarou"
       @user.valid?
       expect(@user.errors.full_messages).to include("First name kana is Full-width characters")
