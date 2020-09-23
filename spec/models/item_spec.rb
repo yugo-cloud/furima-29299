@@ -31,8 +31,8 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
-      it "category_idをid:1を選択していると保存できない" do
-        @item.category_id = "1"
+      it "category_idをid:0を選択していると保存できない" do
+        @item.category_id = "0"
         @item.valid?
         expect(@item.errors.full_messages).to include("Category can't be blank")
       end
@@ -41,8 +41,8 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
-      it "condition_idをid:1を選択していると保存できない" do
-        @item.condition_id = "1"
+      it "condition_idをid:0を選択していると保存できない" do
+        @item.condition_id = "0"
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
@@ -51,8 +51,8 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
-      it "postage_idをid:1を選択していると保存できない" do
-        @item.postage_id = "1"
+      it "postage_idをid:0を選択していると保存できない" do
+        @item.postage_id = "0"
         @item.valid?
         expect(@item.errors.full_messages).to include("Postage can't be blank")
       end
@@ -61,8 +61,8 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
-      it "prefecture_idをid:1を選択していると保存できない" do
-        @item.prefecture_id = "1"
+      it "prefecture_idをid:0を選択していると保存できない" do
+        @item.prefecture_id = "0"
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
@@ -71,18 +71,8 @@ describe Item do
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
-      it "prefecture_idをid:1を選択していると保存できない" do
-        @item.prefecture_id = "1"
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
-      end
-      it "handling_time_idが空では保存できない" do
-        @item.handling_time_id = nil
-        @item.valid?
-        expect(@item.errors.full_messages).to include("Handling time can't be blank")
-      end
-      it "handling_time_idをid:1を選択していると保存できない" do
-        @item.handling_time_id = "1"
+      it "handling_time_idをid:0を選択していると保存できない" do
+        @item.handling_time_id = "0"
         @item.valid?
         expect(@item.errors.full_messages).to include("Handling time can't be blank")
       end
