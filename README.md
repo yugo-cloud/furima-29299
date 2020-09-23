@@ -27,7 +27,7 @@ Things you may want to cover:
 |種類|Column|Type|Options|
 |:----|:----|:----|:----|
 画像|    |  | null: false  | ActiveStorage |
-|商品名| name | string  | null: false ||
+|商品名| item_name | string  | null: false ||
 |商品説明| description  | text | null: false ||
 |カテゴリー| category_id   | integer | null: false |Active_hash|
 |状態| condition_id  | integer | null: false, uniqueness: true |Active_hash|
@@ -35,7 +35,7 @@ Things you may want to cover:
 |発送元地域| prefecture_id | integer | null: false |Active_hash|
 |発送までの日数| handling_time_id | integer | null: false |Active_hash|
 |価格| price | integer | null: false, foreign_key: true ||
-|| user | references | null: false, foreign_key: true ||
+|ユーザー| user | references | null: false, foreign_key: true ||
 ### Association
 * belongs_to :user
 * has_one :purchaser
