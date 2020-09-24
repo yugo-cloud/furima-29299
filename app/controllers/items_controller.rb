@@ -37,3 +37,5 @@ end
 #   def select_item
 #     @item = Item.find(params[:id])
 #   end
+# before_actionも検討しましたが変更があった時記述しやすいよう今回は見送り
+# 後学のためにコードだけ残しておきます
