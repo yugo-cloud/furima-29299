@@ -22,7 +22,7 @@ Things you may want to cover:
 ### Association
 * has_many :items
 * has_many :comments
-* has_many :purchasers
+* has_many :orders
 ### Item
 |種類|Column|Type|Options|
 |:----|:----|:----|:----|
@@ -38,7 +38,7 @@ Things you may want to cover:
 |ユーザー| user | references | null: false, foreign_key: true ||
 ### Association
 * belongs_to :user
-* has_one :purchaser
+* has_one :order
 * has_many :comments
 * has_one_attached: image
 ## comments
@@ -58,11 +58,11 @@ Things you may want to cover:
 || city  | string | null: false   ||
 || address    | string     | null: false     ||
 || building_name   | string   |        ||
-|| phone_number  | string  | null: false, uniqueness: true ||
+|| phone_number  | integer | null: false, uniqueness: true ||
 || purchaser | references | null: false, foreign_key: true ||
 ### Association
-* belongs_to :purchaser
-## purchasers
+* belongs_to :order
+## order
 |種類        | Column     | Type       | Options      |
 |-----------|------------|-------------|--------------|
 || item   | references  | null: false, foreign_key: true  |

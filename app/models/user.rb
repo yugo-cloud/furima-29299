@@ -3,8 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   has_many :items
-  has_many :purchasers
+  has_many :comments
+  has_many :order
+
   with_options presence: true do
     validates :nickname
     PASSWORD_REGEX = /\A[ぁ-んァ-ン一-龥]/
@@ -15,6 +18,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: PASSWORD_REGEX2 ,message: "is Full-width characters"}
     validates :birth_day
   end
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
