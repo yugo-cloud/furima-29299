@@ -59,7 +59,7 @@ Things you may want to cover:
 || address    | string     | null: false     ||
 || building_name   | string   |        ||
 || phone_number  | integer | null: false, uniqueness: true ||
-|| purchaser | references | null: false, foreign_key: true ||
+|| order | references | null: false, foreign_key: true ||
 ### Association
 * belongs_to :order
 ## order
