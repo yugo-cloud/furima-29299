@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :seller, only: [:index]
+  before_action :buyable, only: [:index]
   before_action :action, only: [:index, :create]
 
   def index
@@ -33,9 +33,9 @@ private
     )
   end
 
-  def seller
+  def buyable
     @item = Item.find(params[:item_id])
-    if @item.user_id == current_user.id
+    if @item.user_id == current_user.id || @item.order != nil
       redirect_to root_path
     end
   end
