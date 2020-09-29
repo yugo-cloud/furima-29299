@@ -6,9 +6,10 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :handling_time
 
-
-  has_one_attached :image
   belongs_to :user
+  has_one :order
+  has_many :comments
+  has_one_attached :image
 
   with_options numericality: {other_than: 0 } do
     validates :category_id
