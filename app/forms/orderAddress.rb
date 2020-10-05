@@ -4,8 +4,8 @@ class OrderAddress
   attr_accessor :post_code, :prefecture, :city, :address, :building_name, :phone_number, :order, :item, :user_id, :item_id, :token
 
   with_options presence: true do
-    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :prefecture, numericality: { other_than: 0, message: "can't be blank" }
+    validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "ハイフンを入れて下さい"}
+    validates :prefecture, numericality: { other_than: 0, message: "都道府県を選択して下さい" }
     validates :city
     validates :address
     validates :phone_number, numericality: { only_integer: true, with: /\A\d{11}\z/ }

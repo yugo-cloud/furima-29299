@@ -20,6 +20,7 @@ class Item < ApplicationRecord
   end
 
   with_options presence: true do
+    validates :image
     validates :item_name
     validates :description
     validates :price
@@ -38,7 +39,7 @@ class Item < ApplicationRecord
     validates :handling_time_id
   end
 
-  validates :price, format: {with: /\A[0-9]+\z/, message: "is invalid. Input half-width characters."}
+  validates :price, format: {with: /\A[0-9]+\z/, message: "は半角で入力して下さい"}
 
   validates :price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999}
 
