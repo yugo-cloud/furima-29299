@@ -45,4 +45,12 @@ class Item < ApplicationRecord
 
   validates :description, length: {maximum: 1000}
 
+  def self.search(search)
+    if search != ""
+      Item.where('item_name LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+
 end
