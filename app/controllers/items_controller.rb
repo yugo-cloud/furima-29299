@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :not_seller, only: [:edit, :update, :destroy]
 
   def index
-    @items = Item.all.order(id: "DESC")
+    @items = Item.order(id: "DESC").page(params[:page]).per(5) 
   end
 
   def new
