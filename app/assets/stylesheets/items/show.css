@@ -214,3 +214,11 @@
 .next-button{
   padding: 0 300px 0 0
 }
+
+.items-comment{
+  height: 30vh;  
+  width: 40vw;
+  border: solid 2px #dedede;
+  background-color: #fff;
+  margin: 5vh 0;
+}

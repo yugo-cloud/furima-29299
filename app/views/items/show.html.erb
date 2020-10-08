@@ -84,10 +84,12 @@
   <%# /商品の概要 %>
 
 
-<%# コメント機能 %>
-  <% @comments.each do |comment| %>          
-   <%= comment.comment %>
-  <%end%>
+    <%# コメント機能 %>
+    <% @comments.each do |comment| %>  
+      <div class= "items-comment">        
+      <%= comment.comment %>
+      </div>
+    <%end%>
 
   <%= form_with model: [@item, @comment], url: item_comments_path(@item), class: "comment-box", local: true do |form| %>
     <%= form.text_area :comment, class: "comment-text" %>
@@ -126,3 +128,4 @@
 
 
 <%# 87行目の青のcommentはブロック変数から渡されたもの、黄色のcommentはカラム %>
+<%# 94行目はルーティングでitemとcommentがネストになっているのでmodel: [@item, @comment]になっている %>
