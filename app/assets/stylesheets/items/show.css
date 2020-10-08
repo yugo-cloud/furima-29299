@@ -204,3 +204,11 @@
   font-weight: bold;
   font-size: 23px;
 }
+
+.items-button{
+  display: flex;
+}
+
+.next-button{
+  padding: 0 300px 0 0
+}
