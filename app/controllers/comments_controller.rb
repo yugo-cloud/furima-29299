@@ -1,11 +1,14 @@
 class CommentsController < ApplicationController
+  def new
+    @comments = Comment.all
+    @comment = Comment.new
+  end
+
   def create
     @comment = Comment.new(comment_params)
-  
     if @comment.save
-      redirect_to "/items/#{@comment.item.id}"
-    else
-      render :show
+      binding.pry
+      ActionCable.server.broadcast 'comment_channel', comment: @comment, user: @comment.user.nickname
     end
   end
 

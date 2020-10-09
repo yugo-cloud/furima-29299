@@ -179,11 +179,6 @@
   justify-content: center;
 }
 
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
-  width:"20";
-  height:"25";
-}
 
 .links {
   display: flex;
@@ -215,10 +210,11 @@
   padding: 0 300px 0 0
 }
 
-.items-comment{
+#items-comment{
   height: 50vh;
   width: 40vw;
   border: solid 2px #dedede;
   background-color: #fff;
   margin: 1vh 0;
+  overflow: scroll;
 }

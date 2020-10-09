@@ -85,13 +85,14 @@
 
 
     <%# コメント機能 %>
-    <div class= "items-comment">
-      <h4>＜コメント一覧＞</h4>
+    <div id= "items-comment">
       <% if @comments %>
-        <% @comments.each do |comment| %>
+        <% @comments.reverse_each do |comment| %>
           <p>
-            <strong><%= comment.user.nickname%>：</strong>
+            <%= comment.user.nickname %>
+            <br>
             <%= comment.comment %>
+            <%= l comment.created_at %>
           </p>
         <% end %>
       <% end %>
@@ -100,8 +101,7 @@
   <% if current_user %>
     <%= form_with model: [@item, @comment], url: item_comments_path(@item), class: "comment-box", local: true do |form| %>
       <%= form.text_area :comment, class: "comment-text" %>
-      <%= form.submit "コメントする", image_tag: "comment.png", class: "comment-btn"%>
-      <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+      <%= form.submit "コメントする", image_tag: "comment.png", class: "comment-btn", id: "comment-btn"%>
       <p class="comment-warn">
       相手のことを考え丁寧なコメントを心がけましょう。
       <br>
