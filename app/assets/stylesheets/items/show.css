@@ -216,9 +216,9 @@
 }
 
 .items-comment{
-  height: 30vh;  
+  height: 50vh;
   width: 40vw;
   border: solid 2px #dedede;
   background-color: #fff;
-  margin: 5vh 0;
+  margin: 1vh 0;
 }

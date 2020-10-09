@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
   
     if @comment.save
-      redirect_to root_path
+      redirect_to "/items/#{@comment.item.id}"
     else
       render :show
     end

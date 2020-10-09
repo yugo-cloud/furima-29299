@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])  
     @comment = Comment.new          #空のcomment、データが入っていない
-    @comments =Comment.all
+    @comments = @item.comments.includes(:user)
   end
 
   def edit

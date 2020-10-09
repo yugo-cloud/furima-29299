@@ -85,22 +85,33 @@
 
 
     <%# コメント機能 %>
-    <% @comments.each do |comment| %>  
-      <div class= "items-comment">        
-      <%= comment.comment %>
-      </div>
-    <%end%>
+    <div class= "items-comment">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= comment.user.nickname%>：</strong>
+            <%= comment.comment %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
 
-  <%= form_with model: [@item, @comment], url: item_comments_path(@item), class: "comment-box", local: true do |form| %>
-    <%= form.text_area :comment, class: "comment-text" %>
-    <%= form.submit "コメントする", image_tag: "comment.png"%>
-    <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-    <p class="comment-warn">
-     相手のことを考え丁寧なコメントを心がけましょう。
-    <br>
-     不快な言葉遣いなどは利用制限や退会処分となることがあります。
-    </p>
-  <% end %>  
+  <% if current_user %>
+    <%= form_with model: [@item, @comment], url: item_comments_path(@item), class: "comment-box", local: true do |form| %>
+      <%= form.text_area :comment, class: "comment-text" %>
+      <%= form.submit "コメントする", image_tag: "comment.png", class: "comment-btn"%>
+      <%= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+      <p class="comment-warn">
+      相手のことを考え丁寧なコメントを心がけましょう。
+      <br>
+      不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+    <% end %>  
+  <% else %>
+      <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+  <% end %>
+
 <%# /コメント機能 %>
 
 
@@ -129,3 +140,4 @@
 
 <%# 87行目の青のcommentはブロック変数から渡されたもの、黄色のcommentはカラム %>
 <%# 94行目はルーティングでitemとcommentがネストになっているのでmodel: [@item, @comment]になっている %>
+<%# 94行目のitem_comments_path(@item)は引数として(@item)を置くことでitem.idを引っ張っている %>
