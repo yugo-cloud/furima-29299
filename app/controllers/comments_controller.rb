@@ -7,8 +7,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-      binding.pry
-      ActionCable.server.broadcast 'comment_channel', comment: @comment, user: @comment.user.nickname
+      ActionCable.server.broadcast 'comment_channel', {comment: @comment, user: current_user, date: @comment.created_at.strftime("%Y年%m月%d日  %H時%M分")}
     end
   end
 

@@ -218,3 +218,8 @@
   margin: 1vh 0;
   overflow: scroll;
 }
+
+.nickname-date{
+  display: flex;
+  justify-content: space-between;
+}

@@ -89,11 +89,15 @@
       <% if @comments %>
         <% @comments.reverse_each do |comment| %>
           <p>
+          <div class= nickname-date>
             <%= comment.user.nickname %>
-            <br>
-            <%= comment.comment %>
             <%= l comment.created_at %>
+          </div>
           </p>
+          <p>
+            <%= comment.comment %>
+          </p>
+          <br>
         <% end %>
       <% end %>
     </div>
